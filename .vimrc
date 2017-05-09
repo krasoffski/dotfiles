@@ -1,5 +1,5 @@
 "" Enables plugins if any
-call pathogen#infect()
+"call pathogen#infect()
 
 "" Rebind <Leader> key
 "" I like to have it here becuase it is easier to reach than the default and
