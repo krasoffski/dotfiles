@@ -25,8 +25,7 @@ set showmode
 "" Show the cursor position
 set ruler
 
-"" Set dark background
-"set bg=light
+"" Set dark background (light|dark)
 set bg=dark
 
 "" Show the (partial) command as it’s being typed
@@ -36,9 +35,6 @@ set showcmd
 set scrolloff=3
 set sidescrolloff=15
 set sidescroll=1
-
-"" Automatic reloading of .vimrc
-"autocmd! bufwritepost .vimrc source %
 
 "" Better copy & paste
 "" When you want to paste large blocks of code into vim, press F2 before you
@@ -58,10 +54,6 @@ vmap <Leader>y "+y
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
-
-"" Quick quit command
-"noremap <Leader>e :quit<CR> " Quit current window
-"noremap <Leader>E :qa!<CR> " Quit all windows
 
 "" Bind Ctrl+<movement> keys to move around the windows,
 "" instead of using Ctrl+w + <movement>
@@ -87,8 +79,6 @@ vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
 "" Color scheme
-"" mkdir -p ~/.vim/colors && cd ~/.vim/colors
-"" wget -O molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 if &t_Co > 8 || has("gui_running")
     "" Show whitespace
     "" MUST be inserted BEFORE the colorscheme command
@@ -99,8 +89,7 @@ if &t_Co > 8 || has("gui_running")
     set cursorline
 
     "" Set color scheme
-    "colorscheme molokai
-    colorscheme solarized
+    colorscheme desert
 endif
 
 
@@ -115,8 +104,7 @@ syntax on
 "set tw=79 " width of document (used by gd)
 "set nowrap " don't automatically wrap on load
 "set fo-=t " don't automatically wrap text when typing
-set colorcolumn=80
-"highlight ColorColumn ctermbg=233
+"set colorcolumn=80
 
 "" Useful settings
 set history=700
@@ -190,21 +178,3 @@ noremap <leader>ss :call StripWhitespace()<CR>
 
 "" Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
-"" Plugins ====================================================================
-map <Leader>e :NERDTreeToggle<CR>
-
-let python_highlight_all = 1
-
-let g:airline_left_alt_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-
-let NERDTreeIgnore = ['\.pyc$']
-
-autocmd FileType python setlocal completeopt-=preview
-"let g:jedi#show_call_signatures = 0
-let g:jedi#usages_command = "<leader>u"
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#popup_on_dot = 0
